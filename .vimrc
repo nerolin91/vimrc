@@ -33,9 +33,10 @@ filetype plugin indent on    " required
 " " Put your non-Plugin stuff after this line
 " " ================================================================================
 " " maps/shortcut
-nmap <C-n> :NERDTree  <CR>  "shortcut for NERDTree plugin
-nmap <F8> :Tagbar <CR>
-
+nmap <c-n> :NERDTree <CR>  
+nmap <c-b> :Tagbar <CR>
+"change word to uppercase, I love this very much  
+inoremap <C-u> <esc>gUiwea
 
 syntax on 
 set autoread
