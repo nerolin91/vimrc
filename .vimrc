@@ -1,27 +1,29 @@
-et nocompatible              " be iMproved, required
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#begin()
 " " alternatively, pass a path where Vundle should install plugins
-call vundle#begin('~/some/path/here')
+"call vundle#begin('~/some/path/here')
 "
 " " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 "
 " " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " "
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-" "
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/nerdcommenter'                                  " [quick comment]
+Plugin 'Chiel92/vim-autoformat'                                     " [quick format]
+Plugin 'Raimondi/delimitMate'                                       " [auto brakets]
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 " " All of your Plugins must be added before the following line
@@ -29,22 +31,28 @@ Plugin 'nvie/vim-flake8'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " " To ignore plugin indent changes, instead use:
-" "filetype plugin on
+" " filetype plugin on
 "
 " " Put your non-Plugin stuff after this line
 " " ================================================================================
 " " MAPS/shortcut
-nmap <c-n> :NERDTree <CR>  
+nmap <c-n> :NERDTree <CR>
 nmap <c-b> :Tagbar <CR>
-
-" " let
+noremap <F3> :Autoformat<CR>
+inoremap jj <ESC>
 " " ================================================================================
-" "
-" "==================================================================================
+"" " Ycm
+" " ================================================================================
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
-
+" " Autoformat
+" " ================================================================================
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+" " ================================================================================
 syntax enable
-syntax on 
+syntax on
 let python_hightlight_all=1
 set autoread
 set shortmess=atI
@@ -62,7 +70,7 @@ set cindent
 set autoindent
 set smartindent
 set softtabstop=2
-set shiftwidth=4 
+set shiftwidth=4
 set ruler      "show cusor line#
 set t_Co=256
 set incsearch
@@ -74,4 +82,13 @@ set showcmd
 set backspace=indent,eol,start
 set background=dark
 colorscheme solarized
-highlight LineNr ctermfg=brown
+" Highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+" PowerLine setting
+set laststatus=2
+set encoding=utf-8
+let g:Powerline_colorscheme = 'solarized256' 
+" YCM .ycm_extra_conf.py load
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
