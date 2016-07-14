@@ -22,8 +22,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdcommenter'                                  " [quick comment]
-Plugin 'Chiel92/vim-autoformat'                                     " [quick format]
-Plugin 'Raimondi/delimitMate'                                       " [auto brakets]
+Plugin 'Chiel92/vim-autoformat'                                    "  [quick format]
+Plugin 'Raimondi/delimitMate'                                      "  [auto brakets]
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 " " All of your Plugins must be added before the following line
@@ -37,14 +37,16 @@ filetype plugin indent on    " required
 " " ================================================================================
 " " MAPS/shortcut
 nmap <c-n> :NERDTree <CR>
-nmap <c-b> :Tagbar <CR>
+nmap <c-t> :Tagbar <CR>
 noremap <F3> :Autoformat<CR>
 inoremap jj <ESC>
 " " ================================================================================
 "" " Ycm
 " " ================================================================================
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-
+" YCM .ycm_extra_conf.py load
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"
 " " Autoformat
 " " ================================================================================
 let g:autoformat_autoindent = 0
@@ -53,6 +55,8 @@ let g:autoformat_remove_trailing_spaces = 0
 " " ================================================================================
 syntax enable
 syntax on
+" 让配置变更立即生效
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 let python_hightlight_all=1
 set autoread
 set shortmess=atI
@@ -90,5 +94,5 @@ set cursorline cursorcolumn
 set laststatus=2
 set encoding=utf-8
 let g:Powerline_colorscheme = 'solarized256' 
-" YCM .ycm_extra_conf.py load
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+
