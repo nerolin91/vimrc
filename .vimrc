@@ -17,13 +17,16 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'ternjs/tern_for_vim'
+Plugin 'SirVer/ultisnips'                                          "  [modelComplet]
+Plugin 'ternjs/tern_for_vim'                                       "    [javaScript]
+Plugin 'nathanaelkane/vim-indent-guides'                           "  [indentGuides]
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'scrooloose/nerdcommenter'                                  " [quick comment]
-Plugin 'Chiel92/vim-autoformat'                                    "  [quick format]
-Plugin 'Raimondi/delimitMate'                                      "  [auto brakets]
+Plugin 'scrooloose/nerdcommenter'                                  "  [quickComment]
+Plugin 'Chiel92/vim-autoformat'                                    "   [quickFormat]
+Plugin 'Raimondi/delimitMate'                                      "   [autoBrakets]
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 " " All of your Plugins must be added before the following line
@@ -40,6 +43,7 @@ nmap <c-n> :NERDTree <CR>
 nmap <c-t> :Tagbar <CR>
 noremap <F3> :Autoformat<CR>
 inoremap jj <ESC>
+map <Leader> <Plug>(easymotion-prefix)
 " " ================================================================================
 "" " Ycm
 " " ================================================================================
@@ -53,6 +57,18 @@ let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
 " " ================================================================================
+" " Indent-Guide 
+" " ================================================================================
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+" " ================================================================================
+
 syntax enable
 syntax on
 " 让配置变更立即生效
@@ -67,6 +83,8 @@ set clipboard=unnamed
 set cmdheight=2
 set history=1000
 set nu
+set ruler
+set relativenumber
 set mouse-=a
 set selection=exclusive
 set selectmode=mouse,key
@@ -75,9 +93,12 @@ set autoindent
 set smartindent
 set softtabstop=2
 set shiftwidth=4
-set ruler      "show cusor line#
+set tabstop=4
 set t_Co=256
 set incsearch
+set hlsearch
+set wildmenu
+set nowrap
 set ignorecase
 set is
 set encoding=utf-8
@@ -87,12 +108,9 @@ set backspace=indent,eol,start
 set background=dark
 colorscheme solarized
 " Highlight current line
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+set cursorline cursorcolumn 
 " PowerLine setting
 set laststatus=2
 set encoding=utf-8
 let g:Powerline_colorscheme = 'solarized256' 
-
 
