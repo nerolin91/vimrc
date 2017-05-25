@@ -14,45 +14,12 @@ Plugin 'gmarik/Vundle.vim'
 " "
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'                                          "  [modelComplet]
-Plugin 'ternjs/tern_for_vim'                                       "    [javaScript]
-Plugin 'nathanaelkane/vim-indent-guides'                           "  [indentGuides]
 Plugin 'Lokaltog/vim-powerline'
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle.vim
-call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-"
-" " Pass the path to set the runtimepath properly.
-" "
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'                                          "  [modelComplet]
-Plugin 'ternjs/tern_for_vim'                                       "    [javaScript]
-Plugin 'nathanaelkane/vim-indent-guides'                           "  [indentGuides]
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'scrooloose/nerdcommenter'                                  "  [quickComment]
-Plugin 'Chiel92/vim-autoformat'                                    "   [quickFormat]
-Plugin 'Raimondi/delimitMate'                                      "   [autoBrakets]
+Plugin 'altercation/vim-colors-solarized'
 " ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 " " All of your Plugins must be added before the following line
@@ -65,36 +32,16 @@ filetype plugin indent on    " required
 " " Put your Plugin setting after this line
 " " ================================================================================
 " " MAPS/shortcut
-let mapleader = ','
 nmap <c-n> :NERDTree <CR>
 nmap <c-t> :Tagbar <CR>
-noremap <F3> :Autoformat<CR>
 inoremap jj <ESC>
-map <Leader> <Plug>(easymotion-prefix)
-:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " " ================================================================================
-" " [Ycm]
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-" " .ycm_extra_conf.py load
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" " ================================================================================
-" " [Autoformat]
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-" " ================================================================================
-" " [Indent-Guide] 
-" " 随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
-" " 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
-" " 色块宽度
-let g:indent_guides_guide_size=1
-" " ================================================================================
-" " [Nerdcommenter]
-" " ,cc -> comment
-" " ,cA -> insert comment at the end of this line
-" " ,cu -> uncomment
 " " ================================================================================
 let g:Powerline_colorscheme = 'solarized256' 
 syntax enable
@@ -138,4 +85,3 @@ colorscheme solarized
 set cursorline cursorcolumn " Highlight current line
 set laststatus=2 " PowerLine setting
 set encoding=utf-8
-
